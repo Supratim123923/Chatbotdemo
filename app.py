@@ -16,9 +16,9 @@ from dotenv import load_dotenv
 from langchain import hub
 # ENV setup
 load_dotenv()
-os.environ["OPENAI_API_KEY"] = st.secrets("OPENAI_API_KEY")
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = st.secrets("LANGCHAIN_API_KEY")
+os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGCHAIN_API_KEY"]
 
 st.set_page_config(page_title="Chat with Cached PDFs", layout="wide")
 st.title("📄 Chat with Multiple PDFs + Cached FAISS DB")
