@@ -14,3 +14,7 @@ faiss-cpu
 wikipedia
 arxiv
 pypdf2
+pdfplumber
+langgraph
+sentence_transformers
+rank_bm25
