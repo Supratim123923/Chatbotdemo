@@ -77,7 +77,7 @@ openai_tool = Tool(
     # Agent setup
 tools = [openai_tool]
 if st.session_state.agent_executor is None:
-    prompt = hub.pull("hwchase17/openai-functions-agent"
+    prompt = hub.pull("hwchase17/openai-functions-agent")
     agent = create_openai_tools_agent(llm, tools, prompt)
     executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
     st.session_state.agent_executor = executor
@@ -176,6 +176,7 @@ if user_question and st.session_state.agent_executor:
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+
 
 
 
