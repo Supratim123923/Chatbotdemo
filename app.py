@@ -169,7 +169,7 @@ if user_question and st.session_state.agent_executor:
     result = st.session_state.agent_executor.invoke({"input": user_question})
     answer = result["output"]
 
-    st.session_state.messages.append({"role": "user", "content": user_question})
+    st.session_state.messages.append({"role": "user", "content": user_question + "from the dcument"})
     st.session_state.messages.append({"role": "assistant", "content": answer})
     #st.chat_message("assistant").write(answer)
 
@@ -177,5 +177,6 @@ if user_question and st.session_state.agent_executor:
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+
 
 
