@@ -24,7 +24,7 @@ os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 
 st.set_page_config(page_title="Chat with Cached PDFs", layout="wide")
-st.title("📄 Chat with Multiple PDFs + Cached FAISS DB")
+st.title("MFI 360 Help Desk")
 
 # Constants
 DB_PATH = "vector_store"
@@ -248,3 +248,4 @@ if user_question and st.session_state.agent_executor:
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+
