@@ -97,7 +97,11 @@ uploaded_files = st.file_uploader("Upload one or more PDFs", type=["pdf"], accep
 if uploaded_files:
     current_hash = compute_files_hash(uploaded_files)
     previous_hash = load_prev_hash()
-    loader = PyPDFLoader("D:\Gen AI\QA Basic ChatBot\chatbot\MFI360 Explorer_User_Manual.pdf")
+    # Save the first uploaded file to disk
+    with open(uploaded_files[0].name, "wb") as f:
+        f.write(uploaded_files[0].read())
+    uploaded_files[0].seek(0)  # Reset pointer for future use
+    loader = PyPDFLoader(uploaded_files[0].name)
     st.session_state.pages = loader.load()
     if   os.path.exists(DB_PATH) and current_hash == previous_hash:
         # Load cached FAISS DB
